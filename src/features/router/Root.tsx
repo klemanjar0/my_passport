@@ -2,9 +2,11 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { useAppState } from '../appState';
 import Navbar from '../../components/Navbar/Navbar';
+import { useObservableRouter } from './store';
 
 const Root = () => {
-  const appState = useAppState();
+  useAppState();
+  useObservableRouter();
 
   return (
     <>

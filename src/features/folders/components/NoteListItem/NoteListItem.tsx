@@ -1,15 +1,6 @@
 import React from 'react';
 import { INote } from '../../store/types';
-import {
-  Box,
-  Card,
-  CardBody,
-  Divider,
-  Editable,
-  EditableInput,
-  EditablePreview,
-  EditableTextarea,
-} from '@chakra-ui/react';
+import { Card, CardBody, Editable, EditableInput, EditablePreview, EditableTextarea } from '@chakra-ui/react';
 import { updateNote } from '../../store/events';
 
 interface Props {

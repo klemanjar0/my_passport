@@ -6,6 +6,7 @@ import {
   onCreateFolderMutation,
   onCreateNoteMutation,
   onRemoveFolderMutation,
+  onSelectFolderMutation,
   onUpdateNoteMutation,
 } from './mutations';
 import find from 'lodash/find';
@@ -26,16 +27,10 @@ export const folders = combine(folderStore, (store) => store.folders);
 
 export const folderState = createStore<FolderState>({
   selectedFolderId: null,
-}).on(selectFolder, (state, payload) => ({ ...state, selectedFolderId: payload }));
+}).on(selectFolder, onSelectFolderMutation);
 
 export const notes = combine(folderStore, folderState, (folderStore, folderState) => {
   const folder = folderStore.folders.filter((it) => it.id === folderState.selectedFolderId)[0] || { notes: [] };
 
-  const notes = folder.notes;
-
-  return notes;
-});
-
-folders.watch((state) => {
-  console.log(state);
+  return folder.notes;
 });

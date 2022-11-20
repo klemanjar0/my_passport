@@ -1,4 +1,4 @@
-import { CreateNotePayload, FolderStore, IFolder, UpdateNotePayload } from './types';
+import { CreateNotePayload, FolderState, FolderStore, IFolder, UpdateNotePayload } from './types';
 import find from 'lodash/find';
 import cloneDeep from 'lodash/cloneDeep';
 
@@ -32,3 +32,9 @@ export const onUpdateNoteMutation = (state: FolderStore, payload: UpdateNotePayl
     folders: state.folders.map((it) => (it.id === payload.folderId ? { ...it, notes: mapped } : it)),
   });
 };
+
+export const onSelectFolderMutation = (state: FolderState, payload: string | null) =>
+  cloneDeep({
+    ...state,
+    selectedFolderId: payload,
+  });
