@@ -8,3 +8,12 @@ export const initFolder = (name: string, initialNotes: INote[] = []): IFolder =>
     notes: [...initialNotes] ?? [],
   };
 };
+
+export const initNote = (payload: { name: string; body: string; url?: string }): INote => {
+  return {
+    id: uniqueId('note_'),
+    name: payload.name,
+    body: payload.body,
+    url: payload.url,
+  };
+};

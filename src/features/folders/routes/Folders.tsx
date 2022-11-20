@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Card, CardBody, Container, Divider, Heading, Text, VStack } from '@chakra-ui/react';
+import { Box, Button, Card, CardBody, Container, Divider, Heading, HStack, Text, VStack } from '@chakra-ui/react';
 import { Outlet } from 'react-router-dom';
 import { useList, useStore } from 'effector-react/compat';
 import { folders } from '../store';
@@ -14,8 +14,8 @@ const Folders = () => {
   ));
 
   return (
-    <VStack display={'flex'} flex={1} px={4} flexDirection={'row'} justifyContent={'space-between'} w={'100%'}>
-      <Card w={'30%'} h={'100%'}>
+    <VStack px={4} flexDirection={'row'} alignItems={'flex-start'} justifyContent={'space-between'} w={'100%'}>
+      <Card w={'30%'}>
         <CardBody display={'flex'} flexDirection={'column'}>
           <CreateFolderForm />
           <Heading display={'flex'} alignItems={'center'} gap={'8px'} flexDirection={'row'} mb={2} size={'md'}>
@@ -27,9 +27,9 @@ const Folders = () => {
           </Box>
         </CardBody>
       </Card>
-      <Box w={'69%'} h={'100%'}>
+      <HStack w={'69%'}>
         <Outlet />
-      </Box>
+      </HStack>
     </VStack>
   );
 };

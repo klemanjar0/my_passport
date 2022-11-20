@@ -18,3 +18,8 @@ export interface FolderStore {
 export interface FolderState {
   selectedFolderId: string | null;
 }
+
+export interface CreateNotePayload {
+  folderId: string;
+  note: INote;
+}

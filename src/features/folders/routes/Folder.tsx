@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { selectFolder } from '../store/events';
-import { useStore } from 'effector-react/compat';
+import { useList, useStore } from 'effector-react/compat';
 import { defaultFolder, folders } from '../store';
 import { useParams } from 'react-router-dom';
 import find from 'lodash/find';
-import { Box, Divider, Heading } from '@chakra-ui/react';
+import { Box, Button, Divider, Heading } from '@chakra-ui/react';
+import { IoAddOutline } from 'react-icons/io5';
 
 const Folder = () => {
   const params = useParams();
@@ -22,7 +23,12 @@ const Folder = () => {
 
   return (
     <Box w={'100%'}>
-      <Heading size={'lg'}>{folder.name}</Heading>
+      <Box display={'flex'} justifyContent={'space-between'} flexDirection={'row'} alignItems={'center'}>
+        <Heading size={'xl'}>{folder.name}</Heading>
+        <Button p={0} m={0} variant={'ghost'}>
+          <IoAddOutline size={28} />
+        </Button>
+      </Box>
       <Divider />
     </Box>
   );
