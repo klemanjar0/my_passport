@@ -23,3 +23,8 @@ export interface CreateNotePayload {
   folderId: string;
   note: INote;
 }
+
+export interface UpdateNotePayload {
+  folderId: string;
+  note: INote;
+}
